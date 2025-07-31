@@ -6,7 +6,6 @@ function Home() {
   const [moreLinksOpen, setMoreLinksOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Home');
 
-  // Refs for navigation
   const homeRef = useRef(null);
   const featureRef = useRef(null);
   const aboutRef = useRef(null);
@@ -14,7 +13,6 @@ function Home() {
   const blogRef = useRef(null);
   const contactRef = useRef(null);
   
-  // Other content refs
   const communicationRef = useRef(null);
   const feedbackRef = useRef(null);
   const feedbackCardRef = useRef(null);
@@ -31,16 +29,11 @@ function Home() {
   const extraTeamCardRefs = [useRef(null), useRef(null), useRef(null)];
 
 
-
-
-  // Scroll to section
 const scrollToSection = (ref, sectionName) => {
   ref.current?.scrollIntoView({ behavior: 'smooth' });
   setActiveSection(sectionName);
 };
 
-
-  // Animate visible sections
   useEffect(() => {
     const observers = [];
     const addVisibleClass = (ref) => {
@@ -70,7 +63,7 @@ const scrollToSection = (ref, sectionName) => {
     ].forEach(addVisibleClass);
 
     return () => observers.forEach(observer => observer.disconnect());
-  }, []);
+  }, [teamCardRefs, extraTeamCardRefs]);
   const [current, setCurrent] = useState(0);
 
 const testimonials = [
@@ -128,14 +121,13 @@ useEffect(() => {
 
   return (
     <div className="home-container">
-      {/* Navbar */}
       <nav className="navbar">
         <div className="logo">imagine<span className="dot">.</span></div>
         <ul className="nav-links">
           <li
-  className={`nav-item ${activeSection === 'Home' ? 'active' : ''}`}
-  onClick={() => scrollToSection(homeRef, 'Home')}
->
+           className={`nav-item ${activeSection === 'Home' ? 'active' : ''}`}
+           onClick={() => scrollToSection(homeRef, 'Home')}
+          >
   Home
 </li>
 
@@ -200,8 +192,6 @@ useEffect(() => {
 
         </ul>
       </nav>
-
-      {/* Hero Section */}
       <section className="hero" ref={homeRef}>
         <div className="hero-text">
           <h1>Make Your Business<br />More Profitable</h1>
@@ -212,12 +202,9 @@ useEffect(() => {
           <img src="/Images/chart.svg" alt="Chart Growth" />
         </div>
       </section>
-{/* Features Section */}
-<section className="imagine-features" ref={featureRef}>
+       <section className="imagine-features" ref={featureRef}>
   <h2>Imagine Features</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga quos quaerat sapiente nam, id vero.</p>
-
-  {/* First Row */}
   <div className="feature-cards">
     <div className="feature-card">
       <div className="icon-circle">
@@ -225,7 +212,7 @@ useEffect(() => {
       </div>
       <h3>Marketing Consulting</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-      <a href="#">Learn More</a>
+      <a href="/">Learn More</a>
     </div>
 
     <div className="feature-card">
@@ -234,7 +221,7 @@ useEffect(() => {
       </div>
       <h3>Market Analysis</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-      <a href="#">Learn More</a>
+      <a href="/">Learn More</a>
     </div>
 
     <div className="feature-card">
@@ -243,11 +230,9 @@ useEffect(() => {
       </div>
       <h3>Easy Purchase</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-      <a href="#">Learn More</a>
+      <a href="/">Learn More</a>
     </div>
   </div>
-
-  {/* Second Row */}
   <div className="feature-cards">
     <div className="feature-card">
       <div className="icon-circle">
@@ -255,7 +240,7 @@ useEffect(() => {
       </div>
       <h3>Free Updates</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-      <a href="#">Learn More</a>
+      <a href="/">Learn More</a>
     </div>
 
     <div className="feature-card">
@@ -264,7 +249,7 @@ useEffect(() => {
       </div>
       <h3>100% Satisfied</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-      <a href="#">Learn More</a>
+      <a href="/">Learn More</a>
     </div>
 
     <div className="feature-card">
@@ -273,7 +258,7 @@ useEffect(() => {
       </div>
       <h3>Easy Plugin</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-      <a href="#">Learn More</a>
+      <a href="/">Learn More</a>
     </div>
   </div>
 </section>
@@ -281,19 +266,14 @@ useEffect(() => {
 <div className="communication-section" ref={communicationRef}   >
 
   <div className="communication-content">
-    {/* Left Image */}
     <div className="left-image">
       <img src="/Images/10002.svg" alt="Feedback Illustration" />
     </div>
-
-    {/* Right Content */}
     <div className="right-text">
       <h2>Communicate and gather feedback</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam.
       </p>
-
-      {/* Testimonial Card */}
       <div className="testimonial-card">
         <img className="profile-image" src="/Images/Joe.png" alt="Grey Simpson" />
         <div className="testimonial-text">
@@ -309,7 +289,7 @@ useEffect(() => {
 
 <section className="feedback-section" ref={feedbackRef}>
   <div className="feedback-content reverse-layout">
-    {/* Left Side: Text + Card */}
+
     <div className="feedback-text">
       <h2>Communicate and gather feedback</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam</p>
@@ -325,8 +305,6 @@ useEffect(() => {
         </p>
       </div>
     </div>
-
-    {/* Right Side: Image */}
     <div className="feedback-image" ref={feedbackImageRef}>
       <img src="/Images/10003.svg" alt="Feedback Illustration" />
     </div>
@@ -335,17 +313,14 @@ useEffect(() => {
 
 <section className="communication-section" ref={feedbackTwoRef}>
   <div className="communication-content">
-    {/* Left Side: Image */}
     <div className="left-image">
       <img src="/Images/10002.svg" alt="Another Feedback Illustration" />
     </div>
 
-    {/* Right Side: Text + Testimonial */}
     <div className="right-text">
       <h2>Communicate and gather feedback</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam.</p>
 
-      {/* Testimonial Card */}
       <div className="testimonial-card">
         <img className="profile-image" src="/Images/joe.png" alt="Grey Simpson" />
         <div className="testimonial-text">
@@ -360,10 +335,8 @@ useEffect(() => {
   </div>
 </section>
 
-{/* 🔁 SECOND SECTION (SAME STRUCTURE) */}
 <section className="feedback-section" ref={feedbackRef2}>
   <div className="feedback-content reverse-layout">
-    {/* Left Side: Text + Card */}
     <div className="feedback-text">
       <h2>Communicate and gather feedback</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam</p>
@@ -380,7 +353,6 @@ useEffect(() => {
       </div>
     </div>
 
-    {/* Right Side: Image */}
     <div className="feedback-image" ref={feedbackImageRef2}>
       <img src="/Images/10003.svg" alt="Feedback Illustration" />
     </div>
@@ -390,12 +362,12 @@ useEffect(() => {
 <section className="about-us-section" ref={aboutRef} id="about">
   <h2 className="about-heading">About Us</h2>
   <div className="about-content">
-    {/* Left: Image */}
+    
     <div className="about-image" ref={aboutImageRef}>
       <img src="/Images/10004.svg" alt="About Us" />
     </div>
 
-    {/* Right: Text */}
+
     <div className="about-text">
       <h3>Our Mission</h3>
       <p className="about-paragraph">
@@ -443,9 +415,9 @@ useEffect(() => {
     <div className="image-container">
       <img src={member.image} alt={member.name} className="team-img" />
       <div className="social-footer">
-        <a href="#"><i className="fab fa-facebook-f"></i></a>
-        <a href="#"><i className="fab fa-twitter"></i></a>
-        <a href="#"><i className="fab fa-instagram"></i></a>
+        <a href="/"><i className="fab fa-facebook-f"></i></a>
+        <a href="/"><i className="fab fa-twitter"></i></a>
+        <a href="/"><i className="fab fa-instagram"></i></a>
       </div>
     </div>
     <h3 className="member-name">{member.name}</h3>
@@ -460,17 +432,17 @@ useEffect(() => {
     {
       name: "Nicolas Stainer",
       role: "Financing",
-      image: "Images/Joe.png", // Replace with actual image path
+      image: "Images/Joe.png", 
     },
     {
       name: "George Brook",
       role: "Founder",
-      image: "Images/10008.jpg", // Replace with actual image path
+      image: "Images/10008.jpg", 
     },
     {
       name: "Emely Hopson",
       role: "Marketing",
-      image: "Images/10016.webp", // Replace with actual image path
+      image: "Images/10016.webp", 
     },
   ].map((member, index) => (
     <div
@@ -481,9 +453,9 @@ useEffect(() => {
       <div className="image-container">
         <img src={member.image} alt={member.name} className="team-img" />
         <div className="social-footer">
-          <a href="#"><i className="fab fa-facebook-f"></i></a>
-          <a href="#"><i className="fab fa-twitter"></i></a>
-          <a href="#"><i className="fab fa-instagram"></i></a>
+          <a href="/"><i className="fab fa-facebook-f"></i></a>
+          <a href="/"><i className="fab fa-twitter"></i></a>
+          <a href="/"><i className="fab fa-instagram"></i></a>
         </div>
       </div>
       <h3 className="member-name">{member.name}</h3>
@@ -535,7 +507,7 @@ useEffect(() => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
         sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.
       </p>
-      <a href="#" className="blog-link">Continue Reading...</a>
+      <a href="/" className="blog-link">Continue Reading...</a>
     </div>
 
     <div className="blog-card">
@@ -548,7 +520,7 @@ useEffect(() => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
         sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.
       </p>
-      <a href="#" className="blog-link">Continue Reading...</a>
+      <a href="/" className="blog-link">Continue Reading...</a>
     </div>
 
     <div className="blog-card">
@@ -561,7 +533,7 @@ useEffect(() => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores
         sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.
       </p>
-      <a href="#" className="blog-link">Continue Reading...</a>
+      <a href="/" className="blog-link">Continue Reading...</a>
     </div>
   </div>
 </section>
@@ -603,11 +575,11 @@ useEffect(() => {
 
 <footer className="custom-footer">
   <div className="footer-icons">
-    <a href="#"><i className="fab fa-facebook-f"></i></a>
-    <a href="#"><i className="fab fa-twitter"></i></a>
-    <a href="#"><i className="fab fa-instagram"></i></a>
-    <a href="#"><i className="fab fa-linkedin-in"></i></a>
-    <a href="#"><i className="fab fa-pinterest-p"></i></a>
+    <a href="/"><i className="fab fa-facebook-f"></i></a>
+    <a href="/"><i className="fab fa-twitter"></i></a>
+    <a href="/"><i className="fab fa-instagram"></i></a>
+    <a href="/"><i className="fab fa-linkedin-in"></i></a>
+    <a href="/"><i className="fab fa-pinterest-p"></i></a>
   </div>
 
   <div className="footer-text">

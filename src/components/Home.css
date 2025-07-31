@@ -1,12 +1,9 @@
-/* Import font-awesome */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
 }
-
-/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -49,7 +46,6 @@ body {
   color: #3579f6;
 }
 
-/* Dropdown Menus */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -75,7 +71,6 @@ body {
   color: #3579f6;
 }
 
-/* Make "More Feature" blue by default */
 .dropdown-menu li:first-child {
   color: #3579f6;
 }
@@ -108,12 +103,11 @@ body {
   color: #3579f6;
 }
 
-/* Hero Section */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 180px 170px 80px; /* Adjusted top padding to account for fixed navbar */
+  padding: 180px 170px 80px; 
   background-color: #fff;
 }
 
@@ -161,7 +155,6 @@ body {
 }
 
 
-/* Section Container */
 .imagine-features {
   opacity: 0;
   transform: translateY(80px);
@@ -177,7 +170,6 @@ body {
   transform: translateY(0);
 }
 
-/* Heading and Paragraph */
 .imagine-features h2 {
   font-size: 38px;
   color: #121212;
@@ -192,7 +184,7 @@ body {
   line-height: 1.6;
 }
 
-/* Feature Cards Container */
+
 .feature-cards {
   display: flex;
   justify-content: center;
@@ -200,7 +192,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Individual Feature Card */
 .feature-card {
   background-color: #ececec;
   padding: 50px 20px 30px;
@@ -219,13 +210,11 @@ body {
   margin-bottom: 30px;
 }
 
-/* Reveal on scroll */
 .imagine-features.visible .feature-card {
   transform: translateY(0);
   opacity: 1;
 }
 
-/* Icon Circle */
 .icon-circle {
   width: 70px;
   height: 70px;
@@ -244,7 +233,6 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Text Styles */
 .feature-card h3 {
   font-size: 18px;
   margin-top: 25px;
@@ -267,7 +255,6 @@ body {
   transition: color 0.4s ease;
 }
 
-/* Hover Effects */
 .feature-card:hover {
   background-color: #007BFF;
   color: white;
@@ -292,7 +279,7 @@ body {
 }
 
 .feature-cards + .feature-cards {
-  margin-top: 40px; /* adjust this value as needed */
+  margin-top: 40px;
 }
 
 
@@ -309,7 +296,6 @@ body {
   gap: 350px;
 }
 
-/* 🔵 Left Image Styling */
 .left-image {
   flex: 1;
   min-width: 250px;
@@ -321,17 +307,15 @@ body {
   width: 200%;
   height: auto;
   opacity: 0;
-  transform: translateX(-90px); /* start off-screen left */
+  transform: translateX(-90px); 
   transition: all 3s ease;
 }
 
-/* 🔵 Right Text (no animation here) */
 .right-text {
   flex: 2;
   padding-right: 100px;
 }
 
-/* 🔵 Heading and paragraph (not animated) */
 .right-text h2 {
   font-size: 36px;
   color: #121212;
@@ -348,7 +332,6 @@ body {
   line-height: 1.8;
 }
 
-/* 🔵 Testimonial Card (initial hidden & right-to-left animation) */
 .testimonial-card {
   display: flex;
   flex-direction: column;
@@ -362,11 +345,10 @@ body {
   max-height: 180px;
 
   opacity: 0;
-  transform: translateX(60px); /* start off-screen right */
+  transform: translateX(60px); 
   transition: all 3s ease;
 }
 
-/* 🟢 Make them visible when section is in view */
 .visible .left-image img {
   opacity: 1;
   transform: translateX(0);
@@ -377,7 +359,6 @@ body {
   transform: translateX(0);
 }
 
-/* 🧾 Card Inner Content Styling */
 .testimonial-text {
   margin-bottom: 10px;
 }
@@ -412,10 +393,6 @@ body {
   max-width: 400px;
 }
 
-
-
-
-
 .feedback-section {
   background-color: #fff;
   padding: 80px 40px;
@@ -429,7 +406,6 @@ body {
   gap: 50px;
 }
 
-/* 🔵 Text + Card on Left */
 .feedback-text {
   flex: 1;
   min-width: 300px;
@@ -453,7 +429,6 @@ body {
   line-height: 1.7;
 }
 
-/* 🧾 Card with animation from left */
 .feedback-card {
   background-color: #f9f9f9;
   border-left: 8px solid #007bff;
@@ -468,13 +443,11 @@ body {
   transform: translateX(-100px);
 }
 
-/* 🟢 Only animate when .visible is added */
 .feedback-card.visible {
   animation: slideInLeft 3s ease-out forwards;
 }
 
 
-/* 🧑‍ Profile */
 .profile-image {
   width: 50px;
   height: 50px;
@@ -509,7 +482,6 @@ body {
   max-width: 400px;
 }
 
-/* 🔴 Right Side Image with animation from right */
 .feedback-image {
   flex: 1;
   min-width: 300px;
@@ -529,7 +501,6 @@ body {
   height: auto;
 }
 
-/* 🔄 Keyframes */
 @keyframes slideInLeft {
   0% {
     transform: translateX(-100px);
@@ -551,8 +522,6 @@ body {
     opacity: 1;
   }
 }
-
-
 
 
 .about-us-section {
@@ -585,7 +554,7 @@ body {
 .about-text {
   max-width: 600px;
   text-align: left;
-  color: #6c757d; /* light grey */
+  color: #6c757d; 
 }
 
 .about-text h3 {
@@ -623,18 +592,18 @@ body {
 .learn-more-btn {
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: #007bff; /* blue */
+  background-color: #007bff; 
   color: white;
   border: none;
   border-radius: 50px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* 👈 added transform transition */
+  transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
 .learn-more-btn:hover {
   background-color: #007bff;
-  transform: translateY(-3px); /* 👈 move up on hover */
+  transform: translateY(-3px);
 }
 
 
@@ -649,7 +618,6 @@ body {
   animation: slide-left-right-once 1.5s ease-in-out forwards;
 }
 
-/* Slide animation only when visible */
 @keyframes slide-left-right-once {
   0% {
     transform: translateX(-10px);
@@ -661,8 +629,6 @@ body {
     transform: translateX(0px);
   }
 }
-
-
 
 .our-team-section {
   padding: 80px 40px;
@@ -698,8 +664,8 @@ body {
   transition: transform 0.3s ease;
   text-align: left;
   direction: rtl;
-  padding: 0; /* Remove padding */
-  margin: 0;  /* Remove margin */
+  padding: 0; 
+  margin: 0; 
   box-sizing: border-box;
 }
 
@@ -761,8 +727,8 @@ body {
 .member-name,
 .member-role,
 .member-desc {
-  margin: 0; /* Remove margin */
-  padding: 0 10px; /* Optional small padding for readability */
+  margin: 0;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
@@ -784,7 +750,6 @@ body {
   line-height: 1.8;
 }
 
-/* Slide-up animation */
 .slide-up {
   opacity: 0;
   transform: translateY(50px);
@@ -891,7 +856,6 @@ body {
   display: block;
 }
 
-/* Text block with no spacing from image */
 .blog-content {
   padding: 0;
 }
@@ -913,7 +877,7 @@ body {
  
 }
 .blog-category {
-  color: #007bff; /* Blue */
+  color: #007bff; 
   font-weight: 500;
 }
 
@@ -938,7 +902,7 @@ body {
 
 
 .contact-section {
-  background-image: url('/public/Images/background.jpg'); /* Not /public */
+  background-image: url('/public/Images/background.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -954,7 +918,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(85, 163, 246, 0.7); /* Transparent blue overlay */
+  background-color: rgba(85, 163, 246, 0.7); 
   z-index: 1;
 }
 
@@ -1022,13 +986,13 @@ body {
 .form-textarea {
   padding: 12px;
   border: 1px solid #ccc;
-  height: 200px;         /* Increased height */
-  width: 90%;            /* Decreased width */
+  height: 200px;      
+  width: 90%;            
   resize: none;
   font-size: 16px;
   background-color: #f9f9f9;
   color: #000;
-   /* Optional: center the textarea */
+ 
 }
 
 .form-button {
