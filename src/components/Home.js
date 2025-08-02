@@ -395,17 +395,17 @@ useEffect(() => {
    {[{
   name: "Cloe Marena",
   role: "President",
-  image: "Images/kimberly.png",
+  image: "/Images/kimberly.png",
 },
 {
   name: "John Rooster",
   role: "Marketing",
-  image: "Images/10009.png",
+  image: "/Images/10009.png",
 },
 {
   name: "Will Turner",
   role: "Marketing",
-  image: "Images/10011.png",
+  image: "/Images/10011.png",
 }].map((member, index) => (
   <div
     className="team-card slide-up"
@@ -432,17 +432,17 @@ useEffect(() => {
     {
       name: "Nicolas Stainer",
       role: "Financing",
-      image: "Images/Joe.png", 
+      image: "/Images/Joe.png", 
     },
     {
       name: "George Brook",
       role: "Founder",
-      image: "Images/10008.jpg", 
+      image: "/Images/10008.jpg", 
     },
     {
       name: "Emely Hopson",
       role: "Marketing",
-      image: "Images/10016.webp", 
+      image: "/Images/10016.webp", 
     },
   ].map((member, index) => (
     <div
