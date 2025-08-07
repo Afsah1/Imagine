@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import './Home.css';
 
 function Home() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [moreLinksOpen, setMoreLinksOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Home');
+  const [current, setCurrent] = useState(0);
 
   const homeRef = useRef(null);
   const featureRef = useRef(null);
@@ -12,7 +13,7 @@ function Home() {
   const testimonialRef = useRef(null);
   const blogRef = useRef(null);
   const contactRef = useRef(null);
-  
+
   const communicationRef = useRef(null);
   const feedbackRef = useRef(null);
   const feedbackCardRef = useRef(null);
@@ -23,19 +24,29 @@ function Home() {
   const feedbackImageRef2 = useRef(null);
   const aboutImageRef = useRef(null);
   const teamRef = useRef(null);
-    const teamHeadingRef = useRef(null);
+  const teamHeadingRef = useRef(null);
   const teamTextRef = useRef(null);
-  const teamCardRefs = [useRef(null), useRef(null), useRef(null)];
-  const extraTeamCardRefs = [useRef(null), useRef(null), useRef(null)];
 
+  // ✅ Define refs individually
+  const teamCardRef1 = useRef(null);
+  const teamCardRef2 = useRef(null);
+  const teamCardRef3 = useRef(null);
+  const extraTeamCardRef1 = useRef(null);
+  const extraTeamCardRef2 = useRef(null);
+  const extraTeamCardRef3 = useRef(null);
 
-const scrollToSection = (ref, sectionName) => {
-  ref.current?.scrollIntoView({ behavior: 'smooth' });
-  setActiveSection(sectionName);
-};
+  // ✅ Use useMemo to prevent array recreation
+  const teamCardRefs = useMemo(() => [teamCardRef1, teamCardRef2, teamCardRef3], []);
+  const extraTeamCardRefs = useMemo(() => [extraTeamCardRef1, extraTeamCardRef2, extraTeamCardRef3], []);
+
+  const scrollToSection = (ref, sectionName) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    setActiveSection(sectionName);
+  };
 
   useEffect(() => {
     const observers = [];
+
     const addVisibleClass = (ref) => {
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -50,6 +61,7 @@ const scrollToSection = (ref, sectionName) => {
         },
         { threshold: 0.3 }
       );
+
       if (ref.current) observer.observe(ref.current);
       observers.push(observer);
     };
@@ -57,14 +69,14 @@ const scrollToSection = (ref, sectionName) => {
     [
       featureRef, communicationRef, feedbackRef,
       feedbackCardRef, feedbackImageRef, feedbackTwoRef,
-      feedbackRef2, feedbackCardRef2, feedbackImageRef2, aboutImageRef,teamRef,teamHeadingRef, teamTextRef,
+      feedbackRef2, feedbackCardRef2, feedbackImageRef2,
+      aboutImageRef, teamRef, teamHeadingRef, teamTextRef,
       ...teamCardRefs,
       ...extraTeamCardRefs
     ].forEach(addVisibleClass);
 
     return () => observers.forEach(observer => observer.disconnect());
   }, [teamCardRefs, extraTeamCardRefs]);
-  const [current, setCurrent] = useState(0);
 
 const testimonials = [
   {

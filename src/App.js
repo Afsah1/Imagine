@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './components/Home'; // Capital H!
+import Home from './components/Home';
 
 function App() {
   return (
